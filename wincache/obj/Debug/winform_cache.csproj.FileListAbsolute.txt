@@ -1,4 +1,0 @@
-F:\myself\github\winform_cache\wincache\bin\Debug\wincache.dll
-F:\myself\github\winform_cache\wincache\bin\Debug\wincache.pdb
-F:\myself\github\winform_cache\wincache\obj\Debug\wincache.dll
-F:\myself\github\winform_cache\wincache\obj\Debug\wincache.pdb

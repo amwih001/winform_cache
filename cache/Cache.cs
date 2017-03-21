@@ -18,10 +18,8 @@ namespace winform.Cache
 
         public static void Register()
         {
-
             list_data = Hashtable.Synchronized(new Hashtable());
             key_data = Hashtable.Synchronized(new Hashtable());
-
         }
 
         /// <summary>
@@ -31,7 +29,7 @@ namespace winform.Cache
         /// <param name="step">增量, 可以是一个负数</param>
         /// <param name="life"></param>
         /// <returns></returns>
-        public static int Incr(string key, int step, int life = 0)
+        public static int Incr(string key, int step, int life)
         {
             int value = Cache.GetInt(key);
             value += step;
@@ -44,7 +42,7 @@ namespace winform.Cache
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <param name="life"></param>
-        public static void Set(string key, int value, int life = 0)
+        public static void Set(string key, int value, int life)
         {
             object okey = (object)key;
             object ovalue = (object)value;
@@ -73,7 +71,7 @@ namespace winform.Cache
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <param name="life"></param>
-        public static void Set(string key, string value, int life = 0)
+        public static void Set(string key, string value, int life)
         {
             object okey = (object)key;
             object ovalue = (object)value;
@@ -96,7 +94,7 @@ namespace winform.Cache
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <param name="life"></param>
-        public static void Set(string key, object value, int life = 0)
+        public static void Set(string key, object value, int life)
         {
             object okey = (object)key;
             Cache._Set(okey, value, life);
@@ -122,7 +120,12 @@ namespace winform.Cache
             object obj = Cache._Get(okey);
             return obj != null;
         }
-
+        /// <summary>
+        /// 设置缓存的实现
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <param name="life"></param>
         private static void _Set(object key, object value, int life)
         {
             try
@@ -149,7 +152,11 @@ namespace winform.Cache
             catch (Exception)
             { }
         }
-
+        /// <summary>
+        /// 获取缓存的实现
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
         private static object _Get(object key)
         {
             object obj = null;

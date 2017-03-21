@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections;
 
-namespace wincache
+namespace winform.Cache
 {
     public class Cache
     {
